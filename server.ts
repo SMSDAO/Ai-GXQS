@@ -30,16 +30,16 @@ async function startServer() {
     env: { ...process.env, PORT: '8080' }
   });
 
-  // 🌌 Start Python AI Workers V15 Backend on port 8001...
-  console.log('[SYSTEM] Starting Python AI Workers V15 Backend on port 8001...');
-  const pyBackend = spawn('python3', ['gxqs_workers_v15.py'], {
+  // 🌌 Start Python Autonomous V17 Backend on port 8001...
+  console.log('[SYSTEM] Starting Python Autonomous V17 Backend on port 8001...');
+  const pyBackend = spawn('python3', ['gxqs_autonomous_v17.py'], {
     shell: true,
     stdio: 'inherit',
     env: { ...process.env, PORT: '8001', PYTHONUNBUFFERED: '1' }
   });
 
   pyBackend.on('error', (err) => {
-    console.error('[ERROR] Failed to start Python V15 backend:', err);
+    console.error('[ERROR] Failed to start Python V17 backend:', err);
   });
 
   goBackend.on('error', (err) => {
@@ -49,10 +49,10 @@ async function startServer() {
   // 🛡️ Proxy API requests to Go and Python Backends
   // IMPORTANT: Proxies MUST be defined before body-parsers to avoid consuming streams
   
-  // 🌌 V15 AI Workers Proxy
+  // 🌌 Autonomous V17 Proxy
   app.use(createProxyMiddleware({
     target: 'http://127.0.0.1:8001',
-    pathFilter: ['/api/v15', '/api/v14', '/omega'],
+    pathFilter: ['/api/v17', '/api/v15', '/api/v14', '/omega'],
     changeOrigin: true,
   }));
 
@@ -83,7 +83,7 @@ async function startServer() {
       res.json({
         user_id: userId,
         api_key: apiKey,
-        message: "AI Worker Identity provisioned"
+        message: "Autonomous Identity provisioned"
       });
     } catch (err) {
       console.error('[ERROR] Local Auth Failure:', err);

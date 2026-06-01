@@ -1,6 +1,6 @@
 {
-  "name": "GXQS AI Workers V15",
-  "description": "AI Workers Quantum Intelligence. Smart prompts, GPT-style charting, self-learning, and reactive motion. The next evolution of enterprise intelligence.",
+  "name": "GXQS Autonomous Ecosystem V17",
+  "description": "Autonomous App Ecosystem. Self-governing personality, zero-touch deployment, teleport API mesh, visual playground, and on-chain registry.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

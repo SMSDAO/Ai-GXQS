@@ -62,8 +62,8 @@ export const AIWorkers: React.FC = () => {
   const fetchInitialData = async () => {
     try {
       const [workersRes, promptsRes] = await Promise.all([
-        axios.get('/api/v15/workers'),
-        axios.get('/api/v15/prompts')
+        axios.get('/api/v17/workers'),
+        axios.get('/api/v17/prompts')
       ]);
       setWorkers(Array.isArray(workersRes.data) ? workersRes.data : []);
       setPrompts(Array.isArray(promptsRes.data) ? promptsRes.data : []);
@@ -86,7 +86,7 @@ export const AIWorkers: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post('/api/v15/generate', {
+      const res = await axios.post('/api/v17/generate', {
         worker_id: activeWorker,
         input: userMessage.content
       });
@@ -194,8 +194,8 @@ export const AIWorkers: React.FC = () => {
                 <Sparkles size={48} />
               </div>
               <div>
-                <h4 className="font-bold text-lg mb-2">Initialize V15 Intelligence</h4>
-                <p className="text-sm max-w-sm">Select a quantum worker and provide a prompt to start generating enterprise assets.</p>
+                <h4 className="font-bold text-lg mb-2">Initialize V17 Intelligence</h4>
+                <p className="text-sm max-w-sm">Select a mesh worker node and provide a prompt to start generating autonomous assets.</p>
               </div>
             </div>
           ) : (
@@ -253,10 +253,9 @@ export const AIWorkers: React.FC = () => {
             </button>
           </div>
           <div className="mt-3 flex items-center justify-between text-[10px] font-bold text-zinc-600 uppercase tracking-widest px-2">
-            <span>Enterprise Elite V15.0.0</span>
+            <span>Autonomous Elite V17.0.0</span>
             <div className="flex gap-4">
-              <span>Markdown Supported</span>
-              <span>Self-Learning Active</span>
+              <span>Self-Governing Active</span>
             </div>
           </div>
         </div>

@@ -37,6 +37,7 @@ import {
   LogOut,
   Settings,
   Code,
+  Cpu,
   Activity,
   Globe,
   LayoutGrid,
@@ -56,6 +57,7 @@ import { SocialMarketing } from './components/SocialMarketing';
 import { MarketAnalyticsV6 } from './components/MarketAnalyticsV6';
 import { LeadIntelligence } from './components/LeadIntelligence';
 import { AIWorkers } from './components/AIWorkers';
+import { AutonomousEcosystem } from './components/AutonomousEcosystem';
 
 type Role = 'super_admin' | 'admin' | 'dev' | 'user';
 type DeviceType = 'mobile' | 'tablet' | 'desktop' | 'tv' | 'watch';
@@ -171,11 +173,11 @@ function LoginPage() {
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-12">
             <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
-              <Brain className="text-white" size={24} />
+              <Cpu className="text-white" size={24} />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight text-white leading-none">GXQS AI Workers V15</h1>
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 opacity-80">AI Workers Edition V15.0.0</span>
+              <h1 className="text-2xl font-bold tracking-tight text-white leading-none">GXQS Autonomous Ecosystem V17</h1>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 opacity-80">Autonomous Edition V17.0.0</span>
             </div>
           </div>
           
@@ -184,7 +186,7 @@ function LoginPage() {
               <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 ml-1 mb-2 block">Operator Identity</label>
               <input 
                 type="email" 
-                placeholder="identity@gxqs.v15"
+                placeholder="identity@gxqs.v17"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-zinc-800/50 border border-zinc-700 rounded-2xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all font-mono text-sm"
@@ -198,10 +200,10 @@ function LoginPage() {
                 onChange={(e) => setRole(e.target.value as Role)}
                 className="w-full bg-zinc-800/50 border border-zinc-700 rounded-2xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-medium"
               >
-                <option value="user">AI User</option>
-                <option value="dev">System Developer</option>
-                <option value="admin">System Admin</option>
-                <option value="super_admin">God Overlord (V15)</option>
+                <option value="user">Ecosystem User</option>
+                <option value="dev">Mesh Developer</option>
+                <option value="admin">Board Admin</option>
+                <option value="super_admin">Autonomous Overlord (V17)</option>
               </select>
             </div>
             
@@ -210,7 +212,7 @@ function LoginPage() {
               className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-2xl shadow-xl shadow-indigo-500/20 transition-all active:scale-95 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-              Initialize AI Workers V15
+              Initialize Autonomous V17
             </button>
             <div className="flex items-center gap-4 py-2">
               <div className="h-px bg-zinc-800 flex-1"></div>
@@ -369,10 +371,10 @@ function UniversalDashboard() {
   };
 
   const getGreeting = () => {
-    if (user?.role === 'super_admin') return '🌌 AI WORKERS GOD OVERLORD - V15.0.0';
-    if (user?.role === 'admin') return 'AI Workers Quantum Elite - V15.0.0';
-    if (user?.role === 'dev') return 'AI-Protocol Consciousness Active';
-    return 'AI Workers Gateway Ready';
+    if (user?.role === 'super_admin') return '🌌 AUTONOMOUS GOD OVERLORD - V17.0.0';
+    if (user?.role === 'admin') return 'Autonomous Ecosystem Elite - V17.0.0';
+    if (user?.role === 'dev') return 'Mesh-Protocol Consciousness Active';
+    return 'Autonomous Gateway Ready';
   };
 
   return (
@@ -387,17 +389,18 @@ function UniversalDashboard() {
           <div className="p-6">
             <div className={`flex items-center gap-3 ${!sidebarOpen && 'justify-center'} mb-12`}>
                <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
-                <Brain size={20} className="text-white" />
+                <Cpu size={20} className="text-white" />
               </div>
-              {sidebarOpen && <span className="font-bold text-lg tracking-tight">GXQS AI Workers V15</span>}
+              {sidebarOpen && <span className="font-bold text-lg tracking-tight text-indigo-400">GXQS V17</span>}
             </div>
             
               <nav className="space-y-4">
                 <NavItem icon={Home} label="Overview" active={activeTab === 'home'} onClick={() => setActiveTab('home')} collapsed={!sidebarOpen} />
-                <NavItem icon={Users} label="AI Workers" active={activeTab === 'workers'} onClick={() => setActiveTab('workers')} collapsed={!sidebarOpen} />
-                <NavItem icon={LayoutGrid} label="Quantum Matrix" active={activeTab === 'enterprise'} onClick={() => setActiveTab('enterprise')} collapsed={!sidebarOpen} />
-                <NavItem icon={Globe} label="Quantum Mesh" active={activeTab === 'blockchain'} onClick={() => setActiveTab('blockchain')} collapsed={!sidebarOpen} />
-                <NavItem icon={Brain} label="Quantum AI" active={activeTab === 'ai'} onClick={() => setActiveTab('ai')} collapsed={!sidebarOpen} />
+                <NavItem icon={Zap} label="Autonomous" active={activeTab === 'autonomous'} onClick={() => setActiveTab('autonomous')} collapsed={!sidebarOpen} />
+                <NavItem icon={Users} label="Mesh Workers" active={activeTab === 'workers'} onClick={() => setActiveTab('workers')} collapsed={!sidebarOpen} />
+                <NavItem icon={LayoutGrid} label="Asset Matrix" active={activeTab === 'enterprise'} onClick={() => setActiveTab('enterprise')} collapsed={!sidebarOpen} />
+                <NavItem icon={Globe} label="Teleport Mesh" active={activeTab === 'blockchain'} onClick={() => setActiveTab('blockchain')} collapsed={!sidebarOpen} />
+                <NavItem icon={Brain} label="Intelligence" active={activeTab === 'ai'} onClick={() => setActiveTab('ai')} collapsed={!sidebarOpen} />
                 <NavItem icon={BarChart3} label="Analytics" active={activeTab === 'stats'} onClick={() => setActiveTab('stats')} collapsed={!sidebarOpen} />
                 <NavItem icon={Target} label="Leads" active={activeTab === 'leads'} onClick={() => setActiveTab('leads')} collapsed={!sidebarOpen} />
                 <NavItem icon={Activity} label="Monitoring" active={activeTab === 'monitoring'} onClick={() => setActiveTab('monitoring')} collapsed={!sidebarOpen} />
@@ -428,7 +431,7 @@ function UniversalDashboard() {
           <div className="flex items-center gap-4">
              {device === 'mobile' && (
               <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
-                <Brain size={20} className="text-white" />
+                <Cpu size={20} className="text-white" />
               </div>
             )}
             <h2 className="text-lg font-bold tracking-tight hidden sm:inline">{getGreeting()}</h2>
@@ -436,14 +439,14 @@ function UniversalDashboard() {
           
           <div className="flex items-center gap-4">
             {user?.role === 'super_admin' && (
-              <div className="hidden lg:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500/20 to-rose-500/20 border border-indigo-500/30 rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-400">
+              <div className="hidden lg:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-400">
                 <span className="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
-                AI PROTOCOL ACTIVE
+                AUTONOMOUS PROTOCOL ACTIVE
               </div>
             )}
-            <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono">
+            <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono text-zinc-400">
               <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                OMNIQUANTUM SYNC: V15
+                AUTONOMOUS SYNC: V17
             </div>
             <button className="p-3 bg-zinc-900 border border-zinc-800 rounded-full hover:border-zinc-700 transition-all relative">
               <Bell size={18} />
@@ -456,7 +459,11 @@ function UniversalDashboard() {
         </header>
 
         <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-10">
-          {activeTab === 'workers' ? (
+          {activeTab === 'autonomous' ? (
+            <div className="pt-10">
+               <AutonomousEcosystem />
+            </div>
+          ) : activeTab === 'workers' ? (
             <div className="pt-10">
               <AIWorkers />
             </div>
@@ -505,19 +512,25 @@ function UniversalDashboard() {
           >
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
-                <h3 className="text-zinc-500 text-xs font-black uppercase tracking-[0.3em] mb-2">Quantum IQ Protocol</h3>
+                <h3 className="text-zinc-500 text-xs font-black uppercase tracking-[0.3em] mb-2">Autonomous IQ Protocol</h3>
                 <h1 className="text-3xl md:text-5xl font-bold tracking-tighter bg-gradient-to-r from-white via-white to-indigo-500 bg-clip-text text-transparent">
-                   AI Workers Intelligence
+                   Autonomous App Mesh
                 </h1>
               </div>
               <div className="flex gap-3">
-                 <button className="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-2xl text-xs font-bold hover:bg-zinc-800 transition-all flex items-center gap-2">
+                 <button 
+                   onClick={() => setActiveTab('autonomous')}
+                   className="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-2xl text-xs font-bold hover:bg-zinc-800 transition-all flex items-center gap-2"
+                 >
                    <Plus size={16} />
-                   New Worker
+                   New Node
                  </button>
-                 <button className="px-6 py-3 bg-indigo-600 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-500/20 hover:bg-indigo-500 transition-all flex items-center gap-2">
+                 <button 
+                   onClick={() => setActiveTab('blockchain')}
+                   className="px-6 py-3 bg-indigo-600 rounded-2xl text-xs font-bold shadow-lg shadow-indigo-500/20 hover:bg-indigo-500 transition-all flex items-center gap-2"
+                 >
                    <Target size={16} />
-                   Launch Engine
+                   Teleport API
                  </button>
               </div>
             </div>
@@ -528,16 +541,16 @@ function UniversalDashboard() {
             <AdaptiveCard variant={user?.role === 'super_admin' ? "neon" : "glass"}>
               <div className="flex justify-between mb-4">
                 <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500">
-                  {user?.role === 'super_admin' ? 'Quantum Intelligence' : 'AI Accuracy'}
+                  {user?.role === 'super_admin' ? 'Autonomous Synapse' : 'Mesh Integrity'}
                 </p>
-                <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400"><Brain size={16} /></div>
+                <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400"><Cpu size={16} /></div>
               </div>
               <p className="text-3xl font-bold tabular-nums">
-                {user?.role === 'super_admin' ? '99.9%' : '94.2%'}
+                {user?.role === 'super_admin' ? '99.9%' : '98.5%'}
               </p>
               <div className="mt-4 flex items-center gap-2 text-[10px] font-bold text-indigo-400">
-                <span className="px-1.5 py-0.5 bg-indigo-500/20 rounded">↑ +1.2%</span>
-                <span className="text-zinc-600">Sync: {user?.role === 'super_admin' ? 'V15' : 'STABLE'}</span>
+                <span className="px-1.5 py-0.5 bg-indigo-500/20 rounded">↑ +2.1%</span>
+                <span className="text-zinc-600">Sync: {user?.role === 'super_admin' ? 'V17' : 'STABLE'}</span>
               </div>
             </AdaptiveCard>
 
@@ -655,11 +668,11 @@ function UniversalDashboard() {
                </AdaptiveCard>
 
                <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-[32px] p-8 text-white relative overflow-hidden shadow-2xl shadow-indigo-500/20">
-                  <Brain className="absolute -right-4 -bottom-4 w-32 h-32 text-white/10" />
-                  <h3 className="font-bold mb-2">Upgrade to V15 AI Workers</h3>
-                  <p className="text-xs text-white/80 leading-relaxed mb-6">Unlock quantum intelligence boosters and 24/7 autonomous worker cycles for your node.</p>
+                  <Cpu className="absolute -right-4 -bottom-4 w-32 h-32 text-white/10" />
+                  <h3 className="font-bold mb-2">Autonomous V17 Nodes</h3>
+                  <p className="text-xs text-white/80 leading-relaxed mb-6">Unlock self-governing intelligence boosters and 24/7 autonomous mesh cycles for your cell.</p>
                   <button className="px-6 py-3 bg-white text-indigo-600 font-bold text-xs rounded-xl shadow-xl hover:scale-105 transition-all">
-                    Upgrade Now
+                    Initialize Mesh
                   </button>
                </div>
             </div>
