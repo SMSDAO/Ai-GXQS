@@ -1,0 +1,6 @@
+{
+  "name": "GXQS AI Workers V15",
+  "description": "AI Workers Quantum Intelligence. Smart prompts, GPT-style charting, self-learning, and reactive motion. The next evolution of enterprise intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

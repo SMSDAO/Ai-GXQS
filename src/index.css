@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .glass-elite {
+    @apply bg-black/40 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)];
+  }
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    html { font-size: 14px; }
+  }
+
+  @media (max-width: 480px) {
+    html { font-size: 12px; }
+  }
+
+  @media (min-width: 1920px) {
+    html { font-size: 18px; }
+  }
+
+  @media (min-width: 3840px) {
+    html { font-size: 24px; }
+  }
+
+  /* Larger touch targets for mobile */
+  @media (hover: none) {
+    button, a, .clickable {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer utilities {
+  .hover-scale {
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.02);
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+
+  .tap-scale {
+    @media (hover: none) {
+      &:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+      }
+    }
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  .oled-mode {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .tv-focus {
+    @media (min-width: 1920px) and (min-height: 1080px) {
+      &:focus {
+        outline: 3px solid #00ff88;
+        outline-offset: 8px;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  /* Smartwatch Optimization */
+  @media (max-width: 200px) {
+    .watch-hide {
+      display: none !important;
+    }
+    .watch-text-sm {
+      font-size: 8px !important;
+    }
+    .watch-padding {
+      padding: 4px !important;
+    }
+  }
+
+  /* Landscape Mode */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .landscape-optimize {
+      flex-direction: row !important;
+    }
+    .landscape-hide {
+      display: none !important;
+    }
+  }
+
+  /* Foldable Devices */
+  @media (min-width: 600px) and (max-width: 900px) and (min-height: 600px) and (max-height: 800px) {
+    .foldable-dual {
+      column-count: 2;
+    }
+  }
+
+  /* Animation Performance */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* High Contrast Mode */
+  @media (prefers-contrast: high) {
+    .high-contrast {
+      border: 2px solid currentColor;
+    }
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-dark {
+    background-color: white !important;
+    color: black !important;
+  }
+}
+

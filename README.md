@@ -1,11 +1,35 @@
-<div align="center">
+# SmartPrompt Elite V3.0
+Autonomous Lead Intelligence & Deployment Machine
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+SmartPrompt Elite is a self-learning sales intelligence platform with integrated multi-cloud deployment capabilities.
 
-  <h1>Built with AI Studio</h2>
+## 🚀 Quick Start
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+### One-Command Deployment
+```powershell
+git clone https://github.com/SMSDAO/SmartPromts
+cd SmartPromts
+powershell -ExecutionPolicy Bypass -File ./scripts/deploy.ps1 -Full
+```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+### Environment Switcher (Auto-Detect)
+```powershell
+./scripts/smart_switch.ps1 -Mode auto -WithReserve
+```
 
-</div>
+## 🛠️ Technology Stack
+- **Dashboard**: React 18 / Tailwind CS (Multi-role views)
+- **AI Engine**: Rust (Self-learning pattern recognition)
+- **Core API**: Go (High-performance telemetry)
+- **Deployment**: PowerShell / Docker / Vercel
+- **Economy**: 33% Admin Reserve System
+
+## 🔒 Security & Admin
+The system features a root terminal for administrators to manage reserves across the universal deployment pipeline.
+
+- **Admin Dashboard**: `http://localhost:3000/dashboard` (authenticated via role)
+- **Developer Laboratory**: Integration SDK generator and real-time logs.
+- **Conversion Tracker**: Autonomous lead scoring with Rust engine.
+
+---
+© 2026 SMSDAO - SmartPrompt Elite

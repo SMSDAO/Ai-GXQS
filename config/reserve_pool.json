@@ -1,0 +1,10 @@
+{
+    "pool_name": "SmartPrompt Admin Reserve",
+    "reserve_percentage": 33.0,
+    "distribution_cycle": "monthly",
+    "governance_token": "SP-ELITE",
+    "treasury_address": "0x514D...733",
+    "locked_liquidity": true,
+    "auto_rebalance": true,
+    "version": "3.0.0"
+}
