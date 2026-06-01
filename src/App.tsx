@@ -42,7 +42,9 @@ import {
   Globe,
   LayoutGrid,
   Share2,
-  Brain
+  Brain,
+  Sparkles,
+  ShieldCheck
 } from 'lucide-react';
 import { Infinity } from 'lucide-react';
 import axios from 'axios';
@@ -58,6 +60,9 @@ import { MarketAnalyticsV6 } from './components/MarketAnalyticsV6';
 import { LeadIntelligence } from './components/LeadIntelligence';
 import { AIWorkers } from './components/AIWorkers';
 import { AutonomousEcosystem } from './components/AutonomousEcosystem';
+import { CompleteCodex } from './components/CompleteCodex';
+import { CompleteAudit } from './components/CompleteAudit';
+import { NightProtocol } from './components/NightProtocol';
 
 type Role = 'super_admin' | 'admin' | 'dev' | 'user';
 type DeviceType = 'mobile' | 'tablet' | 'desktop' | 'tv' | 'watch';
@@ -176,8 +181,8 @@ function LoginPage() {
               <Cpu className="text-white" size={24} />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight text-white leading-none">GXQS Autonomous Ecosystem V17</h1>
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 opacity-80">Autonomous Edition V17.0.0</span>
+              <h1 className="text-2xl font-bold tracking-tight text-white leading-none">GXQS Complete Codex V19</h1>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 opacity-80">Complete Edition V19.0.0</span>
             </div>
           </div>
           
@@ -186,7 +191,7 @@ function LoginPage() {
               <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 ml-1 mb-2 block">Operator Identity</label>
               <input 
                 type="email" 
-                placeholder="identity@gxqs.v17"
+                placeholder="identity@gxqs.v19"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-zinc-800/50 border border-zinc-700 rounded-2xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all font-mono text-sm"
@@ -203,7 +208,7 @@ function LoginPage() {
                 <option value="user">Ecosystem User</option>
                 <option value="dev">Mesh Developer</option>
                 <option value="admin">Board Admin</option>
-                <option value="super_admin">Autonomous Overlord (V17)</option>
+                <option value="super_admin">Codex Overlord (V19)</option>
               </select>
             </div>
             
@@ -212,7 +217,7 @@ function LoginPage() {
               className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-2xl shadow-xl shadow-indigo-500/20 transition-all active:scale-95 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-              Initialize Autonomous V17
+              Initialize Codex V19
             </button>
             <div className="flex items-center gap-4 py-2">
               <div className="h-px bg-zinc-800 flex-1"></div>
@@ -371,10 +376,10 @@ function UniversalDashboard() {
   };
 
   const getGreeting = () => {
-    if (user?.role === 'super_admin') return '🌌 AUTONOMOUS GOD OVERLORD - V17.0.0';
-    if (user?.role === 'admin') return 'Autonomous Ecosystem Elite - V17.0.0';
-    if (user?.role === 'dev') return 'Mesh-Protocol Consciousness Active';
-    return 'Autonomous Gateway Ready';
+    if (user?.role === 'super_admin') return '🌌 COMPLETE CODEX GOD OVERLORD - V19.0.0';
+    if (user?.role === 'admin') return 'Complete Codex Elite - V19.0.0';
+    if (user?.role === 'dev') return 'Codex-Protocol Consciousness Active';
+    return 'Complete Gateway Ready';
   };
 
   return (
@@ -391,11 +396,13 @@ function UniversalDashboard() {
                <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
                 <Cpu size={20} className="text-white" />
               </div>
-              {sidebarOpen && <span className="font-bold text-lg tracking-tight text-indigo-400">GXQS V17</span>}
+              {sidebarOpen && <span className="font-bold text-lg tracking-tight text-indigo-400">GXQS V19</span>}
             </div>
             
               <nav className="space-y-4">
                 <NavItem icon={Home} label="Overview" active={activeTab === 'home'} onClick={() => setActiveTab('home')} collapsed={!sidebarOpen} />
+                <NavItem icon={ShieldCheck} label="Complete Audit" active={activeTab === 'audit'} onClick={() => setActiveTab('audit')} collapsed={!sidebarOpen} />
+                <NavItem icon={Sparkles} label="Complete Codex" active={activeTab === 'codex'} onClick={() => setActiveTab('codex')} collapsed={!sidebarOpen} />
                 <NavItem icon={Zap} label="Autonomous" active={activeTab === 'autonomous'} onClick={() => setActiveTab('autonomous')} collapsed={!sidebarOpen} />
                 <NavItem icon={Users} label="Mesh Workers" active={activeTab === 'workers'} onClick={() => setActiveTab('workers')} collapsed={!sidebarOpen} />
                 <NavItem icon={LayoutGrid} label="Asset Matrix" active={activeTab === 'enterprise'} onClick={() => setActiveTab('enterprise')} collapsed={!sidebarOpen} />
@@ -407,6 +414,9 @@ function UniversalDashboard() {
                 <NavItem icon={Rocket} label="Generator" active={activeTab === 'generator'} onClick={() => setActiveTab('generator')} collapsed={!sidebarOpen} />
                 <NavItem icon={Share2} label="Social" active={activeTab === 'social'} onClick={() => setActiveTab('social')} collapsed={!sidebarOpen} />
                 {(user?.role === 'admin' || user?.role === 'super_admin') && <NavItem icon={Shield} label="Security" active={activeTab === 'admin'} onClick={() => setActiveTab('admin')} collapsed={!sidebarOpen} />}
+                <div className="pt-4 mt-4 border-t border-zinc-800">
+                  <NavItem icon={Moon} label="Good Night" active={activeTab === 'night'} onClick={() => setActiveTab('night')} collapsed={!sidebarOpen} />
+                </div>
               </nav>
           </div>
           
@@ -446,7 +456,7 @@ function UniversalDashboard() {
             )}
             <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-full text-xs font-mono text-zinc-400">
               <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                AUTONOMOUS SYNC: V17
+                COMPLETE SYNC: V19
             </div>
             <button className="p-3 bg-zinc-900 border border-zinc-800 rounded-full hover:border-zinc-700 transition-all relative">
               <Bell size={18} />
@@ -459,7 +469,19 @@ function UniversalDashboard() {
         </header>
 
         <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-10">
-          {activeTab === 'autonomous' ? (
+          {activeTab === 'night' ? (
+            <div className="pt-10">
+               <NightProtocol />
+            </div>
+          ) : activeTab === 'audit' ? (
+            <div className="pt-10">
+               <CompleteAudit />
+            </div>
+          ) : activeTab === 'codex' ? (
+            <div className="pt-10">
+               <CompleteCodex />
+            </div>
+          ) : activeTab === 'autonomous' ? (
             <div className="pt-10">
                <AutonomousEcosystem />
             </div>
@@ -550,7 +572,7 @@ function UniversalDashboard() {
               </p>
               <div className="mt-4 flex items-center gap-2 text-[10px] font-bold text-indigo-400">
                 <span className="px-1.5 py-0.5 bg-indigo-500/20 rounded">↑ +2.1%</span>
-                <span className="text-zinc-600">Sync: {user?.role === 'super_admin' ? 'V17' : 'STABLE'}</span>
+                <span className="text-zinc-600">Sync: {user?.role === 'super_admin' ? 'V19' : 'STABLE'}</span>
               </div>
             </AdaptiveCard>
 
@@ -669,10 +691,10 @@ function UniversalDashboard() {
 
                <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-[32px] p-8 text-white relative overflow-hidden shadow-2xl shadow-indigo-500/20">
                   <Cpu className="absolute -right-4 -bottom-4 w-32 h-32 text-white/10" />
-                  <h3 className="font-bold mb-2">Autonomous V17 Nodes</h3>
-                  <p className="text-xs text-white/80 leading-relaxed mb-6">Unlock self-governing intelligence boosters and 24/7 autonomous mesh cycles for your cell.</p>
+                  <h3 className="font-bold mb-2">Complete Codex V19</h3>
+                  <p className="text-xs text-white/80 leading-relaxed mb-6">Unlock technical production boosters and fine-tuning AI studio for your ecosystem.</p>
                   <button className="px-6 py-3 bg-white text-indigo-600 font-bold text-xs rounded-xl shadow-xl hover:scale-105 transition-all">
-                    Initialize Mesh
+                    Initialize Codex
                   </button>
                </div>
             </div>

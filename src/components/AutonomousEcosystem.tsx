@@ -69,6 +69,7 @@ export const AutonomousEcosystem: React.FC = () => {
         name: `Node_${Math.random().toString(36).substring(7).toUpperCase()}`,
         type: 'api'
       });
+      console.log('Plugin generation resp:', res.data);
       setPlugins(prev => [...prev, res.data]);
     } catch (err) {
       console.error('Plugin generation failed:', err);
@@ -203,7 +204,7 @@ export const AutonomousEcosystem: React.FC = () => {
                           <div className="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg group-hover:scale-110 transition-transform">
                             <Cpu size={20} />
                           </div>
-                          <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest font-mono">0x{p.id.substring(0,8)}</span>
+                          <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest font-mono">0x{p.id ? p.id.substring(0,8) : 'UNKNOWN'}</span>
                         </div>
                         <h4 className="font-bold text-white mb-1">{p.name}</h4>
                         <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mb-4">Autonomous {p.type} Module</p>
