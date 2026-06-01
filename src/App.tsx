@@ -64,6 +64,8 @@ import { CompleteCodex } from './components/CompleteCodex';
 import { CompleteAudit } from './components/CompleteAudit';
 import { NightProtocol } from './components/NightProtocol';
 
+import { MegaPipeline } from './components/MegaPipeline';
+
 type Role = 'super_admin' | 'admin' | 'dev' | 'user';
 type DeviceType = 'mobile' | 'tablet' | 'desktop' | 'tv' | 'watch';
 type Theme = 'dark' | 'light' | 'oled';
@@ -328,7 +330,7 @@ const useDeviceLogic = (): { device: DeviceType; scale: number; fontScale: numbe
 function UniversalDashboard() {
   const { user, logout } = useContext(AuthContext);
   const { device, scale, fontScale } = useDeviceLogic();
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState('pipeline');
   const [sidebarOpen, setSidebarOpen] = useState(device !== 'mobile');
   const [leads, setLeads] = useState<any[]>([]);
   const [stats, setStats] = useState<Stats>({
@@ -400,6 +402,7 @@ function UniversalDashboard() {
             </div>
             
               <nav className="space-y-4">
+                <NavItem icon={Rocket} label="Mega Pipeline" active={activeTab === 'pipeline'} onClick={() => setActiveTab('pipeline')} collapsed={!sidebarOpen} />
                 <NavItem icon={Home} label="Overview" active={activeTab === 'home'} onClick={() => setActiveTab('home')} collapsed={!sidebarOpen} />
                 <NavItem icon={ShieldCheck} label="Complete Audit" active={activeTab === 'audit'} onClick={() => setActiveTab('audit')} collapsed={!sidebarOpen} />
                 <NavItem icon={Sparkles} label="Complete Codex" active={activeTab === 'codex'} onClick={() => setActiveTab('codex')} collapsed={!sidebarOpen} />
@@ -468,10 +471,25 @@ function UniversalDashboard() {
           </div>
         </header>
 
-        <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-10">
-          {activeTab === 'night' ? (
+        <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-10 min-h-[calc(100vh-80px)]">
+          {activeTab === 'pipeline' ? (
+            <div className="pt-10">
+               <MegaPipeline />
+            </div>
+          ) : activeTab === 'night' ? (
             <div className="pt-10">
                <NightProtocol />
+            </div>
+          ) : activeTab === 'final' ? (
+            <div className="h-[calc(100vh-140px)] w-full rounded-[32px] overflow-hidden border border-zinc-800 shadow-2xl relative mt-4">
+              <iframe 
+                src="/v19-final-app" 
+                className="w-full h-full bg-[#0a0a0a]"
+                title="Final V19 Dashboard"
+              ></iframe>
+              <div className="absolute top-4 right-4 px-3 py-1 bg-zinc-900/80 backdrop-blur border border-zinc-700 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-400 pointer-events-none">
+                Embedded Python V19 App
+              </div>
             </div>
           ) : activeTab === 'audit' ? (
             <div className="pt-10">

@@ -5,6 +5,7 @@
 
 import express from 'express';
 import path from 'path';
+import { readFileSync } from 'fs';
 import { createServer as createHttpServer } from 'http';
 import { Server as SocketServer } from 'socket.io';
 import { createServer as createViteServer } from 'vite';
@@ -40,6 +41,11 @@ async function startServer() {
   // 🛡️ Proxy API requests to Go and Python Backends
   // IMPORTANT: Proxies MUST be defined before body-parsers to avoid consuming streams
   
+  app.get('/v19-final-app', (req, res) => {
+    const html = readFileSync(path.join(process.cwd(), 'public/final_dashboard.html'), 'utf8');
+    res.send(html);
+  });
+
   // 🛡️ Generic Go Backend Proxy (excluding local routes)
   app.use('/api', (req, res, next) => {
     if (req.path === '/create-user') return next();
